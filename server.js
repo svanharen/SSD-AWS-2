@@ -13,9 +13,9 @@ app.get("/notes", async (req, res) => {
     const notes = await mysqlDatabase.getNotes();
     console.log(notes);
     res.send(notes);
-    res.redirect("notes.ejs", {
+    /* res.redirect("notes.ejs", {
       notes,
-    });
+    }); */
     
   } catch (error){
     res.sendStatus(500).render("note404.ejs")
@@ -28,9 +28,9 @@ app.get("/notes/:id", async (req, res) => {
   try {
     const note = await mysqlDatabase.getNote(id)
     
-    res.render("singleNote.ejs", {
+    /* res.render("singleNote.ejs", {
       note,
-    });
+    }); */
     res.send(note);
   } catch (err) {
     res.status(500).render("note404.ejs")
