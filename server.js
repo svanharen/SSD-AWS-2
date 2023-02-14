@@ -7,7 +7,7 @@ const app = express();
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
 
-app.get("/notes", async (req, res) => {
+app.get("/", async (req, res) => {
   //const searchTerm = req.query.searchTerm;
   try {
     const notes = await mysqlDatabase.getNotes();
