@@ -7,7 +7,7 @@ const app = express();
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
 
-app.get("/", async (req, res) => {
+app.get("/notes", async (req, res) => {
   //const searchTerm = req.query.searchTerm;
   try {
     const notes = await mysqlDatabase.getNotes();
@@ -18,7 +18,8 @@ app.get("/", async (req, res) => {
     }); */
     
   } catch (error){
-    res.sendStatus(500).render("note404.ejs")
+    /* res.sendStatus(500).render("note404.ejs") */
+    console.log(error)
   }
   
 })
@@ -33,7 +34,8 @@ app.get("/notes/:id", async (req, res) => {
     }); */
     res.send(note);
   } catch (err) {
-    res.status(500).render("note404.ejs")
+    /* res.status(500).render("note404.ejs") */
+    console.log(err)
   }  
   
 })
